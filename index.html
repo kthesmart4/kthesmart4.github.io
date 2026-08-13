@@ -78,13 +78,20 @@
             border-radius: 5px;
             display: inline-block;
             font-family: inherit;
-            white-space: nowrap;
         }
-        .contact-label {
+        .contact-item {
+            display: inline-block;
+        }
+        .contact-item + .contact-item {
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 1px solid #dcdcdc;
+        }
+        .contact-label, .counter-label {
             font-family: "Courier New", Courier, monospace;
             font-weight: bold;
         }
-        .email {
+        .email, .counter-value {
             font-family: "Courier New", Courier, monospace;
             font-weight: normal;
         }
@@ -96,6 +103,7 @@
             .container { padding: 12px 2vw; }
             nav a { margin: 0 8px; font-size: 1em; }
             h1 { font-size: 1.3em; }
+            .contact-item { display: block; margin-left: 0 !important; padding-left: 0 !important; border-left: none !important; margin-top: 6px; }
         }
     </style>
 </head>
@@ -112,26 +120,28 @@
         <div class="main-text">
             <p>
                 I am Karan Kumar, a junior research fellow at 
-                <a href="https://www.isid.ac.in/" target="_blank">ISI Delhi Centre</a> in Quantitative Economics.
+                <a href="https://isid.ac.in" target="_blank">ISI Delhi Centre</a> in Quantitative Economics.
                 I completed my M.A. degree Economics with a specialization in World Economy from 
-                <a href="https://www.jnu.ac.in/sis/cswe#" target="_blank">Centre for International Trade</a> (now called Centre for the Study of the World Economy (CSWE)), 
+                <a href="https://jnu.ac.in" target="_blank">Centre for International Trade</a> (now called Centre for the Study of the World Economy (CSWE)), 
                 Jawaharlal Nehru University, New Delhi and B.A. (Hons) in Economics from 
-                <a href="https://svc.ac.in/" target="_blank">Sri Venkateswara College</a>, South Campus, University of Delhi.
+                <a href="https://svc.ac.in" target="_blank">Sri Venkateswara College</a>, South Campus, University of Delhi.
             </p>
             <p>
                 My main areas of interests include social choice theory, axiomatic bargaining theory and mechanism design. I also occasionally enjoy dabbling in industrial organization and pure theory of international trade, especially the confluence of the latter with environmental economics in tackling the climate change crisis and analyzing viable environmental policies addressing the needs of the Global South.
             </p>
         </div>
         <div class="contact">
-            <span class="contact-label">Contact:</span>
-            <span class="email">karan24r@isid.ac.in</span>
+            <span class="contact-item">
+                <span class="contact-label">Contact:</span>
+                <span class="email">karan24r@isid.ac.in</span>
+            </span>
+            <span class="contact-item">
+                <span class="counter-label">Visits:</span> 
+                <span class="counter-value" id="visits">...</span>
+            </span>
         </div>
     </div>
-      <div class="visitor-counter">
-                <span class="counter-label">Visits:</span> <span class="counter-value" id="visits">...</span>
-            </div>
-        </div>
-    </div>
+
     <script>
         fetch('https://countapi.xyz')
             .then(response => response.json())
