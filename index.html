@@ -127,20 +127,19 @@
             <span class="email">karan24r@isid.ac.in</span>
         </div>
     </div>
-       <div class="visitor-counter">
-            Visits: <span id="visits">loading...</span>
+      <div class="visitor-counter">
+                <span class="counter-label">Visits:</span> <span class="counter-value" id="visits">...</span>
+            </div>
         </div>
     </div>
-
     <script>
-        // Calls a free hit counter API to increment and display the minimal count
         fetch('https://countapi.xyz')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('visits').innerText = data.value;
             })
             .catch(error => {
-                document.getElementById('visits').innerText = '1+';
+                document.getElementById('visits').innerText = '1';
             });
     </script>
 </body>
