@@ -131,24 +131,8 @@
                 <span class="email">karan24r@isid.ac.in</span>
             </span>
         </div>
-        <div class="visits">
-            <span class="visit-item">
-                <span class="counter-label">Visits:</span> 
-                <span class="counter-value" id="visits">N/A</span>
-            </span>
-        </div>
-    </div>
+       <img src="https://glitch.me" alt="Visitor Count">
 
-    <script>
-        // Replace with a working counter API endpoint (e.g., CounterAPI)
-        fetch('https://api.counterapi.dev/v2/kthesmart4.github.io/visits/up')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('visits').innerText = data.count || data.value;
-            })
-            .catch(error => {
-                document.getElementById('visits').innerText = 'N/A';
-            });
-    </script>
+
 </body>
 </html>
