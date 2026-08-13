@@ -70,8 +70,8 @@
             font-family: 'Bookman Old Style', Bookman, 'Times New Roman', serif;
             text-align: justify;
         }
-        .contact {
-            margin-top: 2em;
+        .contact, .visits {
+            margin-top: 1.5em;
             font-size: 1.08em;
             background: #f6f6f6;
             padding: 10px 18px;
@@ -79,13 +79,8 @@
             display: inline-block;
             font-family: inherit;
         }
-        .contact-item {
+        .contact-item, .visit-item {
             display: inline-block;
-        }
-        .contact-item + .contact-item {
-            margin-left: 20px;
-            padding-left: 20px;
-            border-left: 1px solid #dcdcdc;
         }
         .contact-label, .counter-label {
             font-family: "Courier New", Courier, monospace;
@@ -121,7 +116,7 @@
             <p>
                 I am Karan Kumar, a junior research fellow at 
                 <a href="https://isid.ac.in" target="_blank">ISI Delhi Centre</a> in Quantitative Economics.
-                I completed my M.A. degree Economics with a specialization in World Economy from 
+                I completed my M.A. degree in Economics with a specialization in World Economy from 
                 <a href="https://jnu.ac.in" target="_blank">Centre for International Trade</a> (now called Centre for the Study of the World Economy (CSWE)), 
                 Jawaharlal Nehru University, New Delhi and B.A. (Hons) in Economics from 
                 <a href="https://svc.ac.in" target="_blank">Sri Venkateswara College</a>, South Campus, University of Delhi.
@@ -136,22 +131,23 @@
                 <span class="email">karan24r@isid.ac.in</span>
             </span>
         </div>
-    <div class="visits">
-        <span class="visit-item">
-        <span class="counter-label">Visits:</span> 
-        <span class="counter-value" id="visits">...</span>
+        <div class="visits">
+            <span class="visit-item">
+                <span class="counter-label">Visits:</span> 
+                <span class="counter-value" id="visits">N/A</span>
             </span>
         </div>
     </div>
 
     <script>
-        fetch('https://countapi.xyz')
+        // Replace with a working counter API endpoint (e.g., CounterAPI)
+        fetch('https://api.counterapi.dev/v1/karankumar-webpage/visits/up')
             .then(response => response.json())
             .then(data => {
-                document.getElementById('visits').innerText = data.value;
+                document.getElementById('visits').innerText = data.count || data.value;
             })
             .catch(error => {
-                document.getElementById('visits').innerText = '1';
+                document.getElementById('visits').innerText = 'N/A';
             });
     </script>
 </body>
