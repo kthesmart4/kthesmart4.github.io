@@ -1,134 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
 <head>
-    <meta charset="UTF-8">
-    <title>Karan Kumar - Personal Webpage</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Karan Kumar - ISI Delhi</title>
+    <style type="text/css">
         body {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            margin: 0;
-            padding: 0;
-            background: #e6f2fb;
-            color: #232323;
-        }
-        .container {
-            max-width: 700px;
-            margin: 48px auto;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-            padding: 32px;
-        }
-        h1 {
-            color: #232323;
-            font-size: 2.2em;
-            text-align: center;
-            margin-bottom: 0.8em;
-            font-weight: normal;
-            letter-spacing: 1px;
-        }
-        h2 {
-            color: #232323;
-            margin-top: 2em;
-            font-size: 1.1em;
-            font-weight: normal;
-        }
-        nav {
-            background: #f6f6f6;
-            color: #232323;
-            padding: 10px 0;
-            text-align: center;
-            margin-bottom: 24px;
-            border-radius: 8px 8px 0 0;
-            font-size: 1em;
-        }
-        nav a {
-            color: #232323;
-            margin: 0 18px;
-            text-decoration: none;
-            font-weight: 500;
-            font-family: inherit;
-            transition: color 0.2s;
-            padding: 2px 4px;
-        }
-        nav a:hover {
-            color: #174ea6;
-            background: #ededed;
-            border-radius: 2px;
-        }
-        a {
-            color: #174ea6;
-            text-decoration: underline;
-            transition: color 0.2s;
-        }
-        a:hover {
-            color: #232323;
-            background: #f6f6f6;
-        }
-        .main-text {
-            font-family: 'Bookman Old Style', Bookman, 'Times New Roman', serif;
-            text-align: justify;
-        }
-        .contact {
-            margin-top: 1.5em;
-            font-size: 1.08em;
-            background: #f6f6f6;
-            padding: 10px 18px;
-            border-radius: 5px;
-            display: inline-block;
-            font-family: "Courier New", Courier, monospace;
+            margin: 0px;
+            padding: 0px;
+            background-color: #EBF5FB;
+            font-family: Arial, Helvetica, sans-serif;
         }
         
-       
+        td {
+            font: 11px Arial, Helvetica, sans-serif;
+            color: #4A5568;
         }
-        .email, .counter-value {
-            font-family: "Courier New", Courier, monospace;
-            font-weight: normal;
+        
+        a {
+            color: #174EA6;
         }
-        p {
-            margin: 1.2em 0;
-            font-size: 1.03em;
+        
+        a:hover {
+            color: #1B4F72;
         }
-        @media (max-width: 650px) {
-            .container { padding: 12px 2vw; }
-            nav a { margin: 0 8px; font-size: 1em; }
-            h1 { font-size: 1.3em; }
-            .contact-item { display: block; margin-left: 0 !important; padding-left: 0 !important; border-left: none !important; margin-top: 6px; }
+
+        #navigation {
+            width: 165px;
+            border-collapse: collapse;
+        }
+
+        #navigation td {
+            border-bottom: 1px solid #EBF5FB;
+        }
+        
+        #navigation a {
+            font: bold 11px Arial, Helvetica, sans-serif;
+            color: #D4E6F1;
+            line-height: 16px;
+            letter-spacing: .1em;
+            text-decoration: none;
+            display: block;
+            padding: 10px 8px 10px 20px;
+        }
+        
+        #navigation a:hover {
+            background: #5DADE2;
+            color: #1B4F72;
+        }
+        
+        #logo {
+            font: 24px Arial, Helvetica, sans-serif;
+            color: #1B4F72;
+            letter-spacing: .2em;
+            line-height: 30px;
+            font-weight: bold;
+        }
+
+        #tagline {	
+            font: 11px Arial, Helvetica, sans-serif;
+            color: #2874A6;
+            letter-spacing: .4em;
+            line-height: 18px;
+            font-weight: bold;
+        }
+
+        .bodyText {
+            font: 13px Arial, Helvetica, sans-serif;
+            color: #4A5568;
+            line-height: 20px;
+            margin-top: 0px;
+        }
+        
+        .pageName {
+            font: 18px Arial, Helvetica, sans-serif;
+            color: #2874A6;
+            line-height: 26px;
+            letter-spacing: .21em;
+            font-weight: bold;
+        }
+        
+        .subHeader {
+            font: bold 11px Arial, Helvetica, sans-serif;
+            color: #1B4F72;
+            line-height: 22px;
+            letter-spacing: .2em;
+        }
+        
+        .smallText {
+            font: 11px Arial, Helvetica, sans-serif;
+            color: #4A5568;
+            line-height: 20px;
+        }
+        
+        .navText {
+            font: 11px Arial, Helvetica, sans-serif;
+            color: #174EA6;
+            line-height: 16px;
+            letter-spacing: .05em;
+            text-decoration: none;
+        }
+
+        .navText:hover {
+            color: #1B4F72;
+            text-decoration: underline;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #EBF5FB;
+            box-shadow: 0 0 15px rgba(0,0,0,0.08);
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href="taship.html">TA-ship</a>
-            <a href="nonacademic.html">Non-Academic Interests</a>
-        </nav>
-        <h1>Welcome to my personal webpage!</h1>
-        <h2>About Me</h2>
-        <div class="main-text">
-            <p>
-                I am Karan Kumar, a junior research fellow at 
-                <a href="https://www.isid.ac.in/~epu" target="_blank">ISI Delhi Centre</a> in Quantitative Economics.
-                I completed my M.A. degree in Economics with a specialization in World Economy from 
-                <a href="https://www.jnu.ac.in/sis/cswe" target="_blank">Centre for International Trade</a> (now called Centre for the Study of the World Economy (CSWE)), 
-                Jawaharlal Nehru University, New Delhi and B.A. (Hons) in Economics from 
-                <a href="https://svc.ac.in" target="_blank">Sri Venkateswara College</a>, South Campus, University of Delhi.
-            </p>
-            <p>
-                My main areas of interests include social choice theory, axiomatic bargaining theory and mechanism design. I also occasionally enjoy dabbling in industrial organization and pure theory of international trade, especially the confluence of the latter with environmental economics in tackling the climate change crisis and analyzing viable environmental policies addressing the needs of the Global South.
-            </p>
-        </div>
-        <div class="contact">
-            <span class="contact-item">
-                <span class="contact-label">Contact:</span>
-                <span class="email">karan24r@isid.ac.in</span>
-            </span>
-        </div>
-       
+<div class="main-container">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <!-- Header Banner -->
+        <tr bgcolor="#D4E6F1">
+            <td colspan="2" height="70" valign="middle" style="padding-left: 20px;">
+                <div id="logo">KARAN KUMAR</div>
+                <div id="tagline">ECONOMICS &amp; PLANNING UNIT &bull; ISI DELHI</div>
+            </td>
+        </tr>
 
+        <!-- Main Content Layout -->
+        <tr>
+            <!-- Left Sidebar Navigation -->
+            <td width="165" valign="top" bgcolor="#1B4F72" style="min-height: 500px;">
+                <table border="0" cellspacing="0" cellpadding="0" width="165" id="navigation">
+                    <tr><td><a href="index.html">HOME</a></td></tr>
+                    <tr><td><a href="research.html">RESEARCH</a></td></tr>
+                    <tr><td><a href="taship.html">TA-SHIP</a></td></tr>
+                    <tr><td><a href="nonacademic.html">NON-ACADEMIC</a></td></tr>
+                </table>
+            </td>
 
+            <!-- Page Body Content -->
+            <td valign="top" style="padding: 28px 36px;">
+                <div class="pageName">WELCOME TO MY PERSONAL WEBPAGE</div>
+                <p class="subHeader" style="margin-top: 12px; margin-bottom: 8px;">ABOUT ME</p>
+                
+                <p class="bodyText">
+                    I am Karan Kumar, a junior research fellow at <a href="https://www.isid.ac.in/~epu" target="_blank">ISI Delhi Centre</a> in Quantitative Economics. I completed my M.A. degree in Economics with a specialization in World Economy from <a href="https://www.jnu.ac.in/sis/cswe" target="_blank">Centre for International Trade</a> (now called Centre for the Study of the World Economy (CSWE)), Jawaharlal Nehru University, New Delhi and B.A. (Hons) in Economics from <a href="https://svc.ac.in" target="_blank">Sri Venkateswara College</a>, South Campus, University of Delhi.
+                </p>
+
+                <p class="bodyText" style="margin-top: 14px;">
+                    My main areas of interests include social choice theory, axiomatic bargaining theory and mechanism design. I also occasionally enjoy dabbling in industrial organization and pure theory of international trade, especially the confluence of the latter with environmental economics in tackling the climate change crisis and analyzing viable environmental policies addressing the needs of the Global South.
+                </p>
+                
+                <hr size="1" color="#D4E6F1" style="margin: 24px 0 16px 0;" />
+
+                <span class="subHeader">CONTACT DETAILS</span>
+                <p class="smallText" style="margin-top: 6px;">
+                    &bull; <strong>Email:</strong> <a href="mailto:karan24r@isid.ac.in" class="navText">karan24r@isid.ac.in</a><br />
+                    &bull; <strong>Department:</strong> Economics and Planning Unit (EPU)<br />
+                    &bull; <strong>Institution:</strong> ISI Delhi Centre, New Delhi
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
