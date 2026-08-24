@@ -2,7 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Math 271 | Fall 2026 - Karan Kumar</title>
+    
+    <!-- MathJax Configuration for LaTeX Rendering -->
+    <script type="text/javascript">
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style type="text/css">
         body {
             margin: 0px;
@@ -79,21 +95,48 @@
             color: #1B4F72;
             line-height: 22px;
             letter-spacing: .2em;
+            text-transform: uppercase;
+            border-bottom: 2px solid #D4E6F1;
+            padding-bottom: 4px;
+            margin-top: 24px;
+            margin-bottom: 12px;
         }
         
         .policy-box {
             background-color: #D4E6F1;
             border-left: 4px solid #1B4F72;
-            padding: 8px 12px;
+            padding: 10px 14px;
             margin: 16px 0;
             font-size: 12px;
+            line-height: 18px;
         }
 
-        /* Course Schedule Table */
+        .important-notice-box {
+            background-color: #FFF5F5;
+            border: 1px solid #FEB2B2;
+            border-left: 4px solid #C53030;
+            padding: 12px 14px;
+            margin-top: 14px;
+            margin-bottom: 14px;
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: 18px;
+            color: #742A2A;
+        }
+
+        .no-grievance-box {
+            background-color: #EBF5FB;
+            border: 1px solid #AED6F1;
+            border-left: 4px solid #2874A6;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+            border-radius: 3px;
+        }
+
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 16px;
+            margin-top: 12px;
             background-color: #FFFFFF;
             border: 1px solid #D4E6F1;
         }
@@ -123,12 +166,167 @@
             background-color: #EBF5FB;
         }
 
+        .form-card {
+            background-color: #FFFFFF;
+            border: 1px solid #D4E6F1;
+            padding: 20px 24px;
+            margin-top: 14px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: bold;
+            font-size: 11px;
+            color: #1B4F72;
+            margin-bottom: 5px;
+            letter-spacing: .05em;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 8px 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: #2D3748;
+            border: 1px solid #AED6F1;
+            border-radius: 3px;
+            background-color: #FAFCFE;
+            box-sizing: border-box;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: #2874A6;
+            background-color: #FFFFFF;
+            outline: none;
+        }
+
+        .form-row {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .form-row td {
+            padding-right: 12px;
+            vertical-align: top;
+        }
+
+        .form-row td:last-child {
+            padding-right: 0px;
+        }
+
+        .submit-btn {
+            background-color: #1B4F72;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: .1em;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2874A6;
+        }
+
+        .submit-btn:disabled {
+            background-color: #A0AEC0;
+            cursor: not-allowed;
+        }
+
+        .email-error-msg {
+            display: none;
+            color: #C53030;
+            background-color: #FFF5F5;
+            border: 1px solid #FEB2B2;
+            padding: 8px 12px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 6px;
+        }
+
+        .latex-preview-box {
+            display: none;
+            margin-top: 8px;
+            padding: 10px 12px;
+            background-color: #FAFCFE;
+            border: 1px solid #AED6F1;
+            border-radius: 3px;
+            font-size: 12px;
+            line-height: 18px;
+            color: #1B4F72;
+        }
+
+        /* Thank You Page Card Styles */
+        .thankyou-card {
+            display: none;
+            background-color: #FFFFFF;
+            border: 2px solid #2874A6;
+            padding: 24px;
+            margin-top: 14px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .thankyou-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1B4F72;
+            margin-bottom: 10px;
+            letter-spacing: .05em;
+        }
+
+        .thankyou-body {
+            font-size: 13px;
+            color: #4A5568;
+            line-height: 20px;
+            margin-bottom: 16px;
+        }
+
+        .thankyou-details-box {
+            background-color: #F7FBFC;
+            border: 1px solid #D4E6F1;
+            padding: 14px;
+            text-align: left;
+            font-size: 11px;
+            color: #1B4F72;
+            border-radius: 3px;
+            margin-bottom: 16px;
+        }
+
         .main-container {
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
             background-color: #EBF5FB;
             box-shadow: 0 0 15px rgba(0,0,0,0.08);
+        }
+
+        @media (max-width: 600px) {
+            #logo {
+                font-size: 20px;
+                letter-spacing: .1em;
+            }
+            #tagline {
+                font-size: 10px;
+                letter-spacing: .1em;
+            }
+            .form-row td {
+                display: block;
+                width: 100%;
+                padding-right: 0px;
+            }
         }
     </style>
 </head>
@@ -138,7 +336,7 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <!-- Header Banner -->
         <tr bgcolor="#D4E6F1">
-            <td colspan="2" height="70" valign="middle" style="padding-left: 20px;">
+            <td colspan="2" height="70" valign="middle" style="padding-left: 20px; padding-right: 20px;">
                 <div id="logo">KARAN KUMAR</div>
                 <div id="tagline">ECONOMICS &amp; PLANNING UNIT &bull; ISI DELHI</div>
             </td>
@@ -147,7 +345,7 @@
         <!-- Main Content Layout -->
         <tr>
             <!-- Left Sidebar Navigation -->
-            <td width="165" valign="top" bgcolor="#1B4F72" style="min-height: 500px;">
+            <td width="165" valign="top" bgcolor="#1B4F72" style="min-height: 600px;">
                 <table border="0" cellspacing="0" cellpadding="0" width="165" id="navigation">
                     <tr><td><a href="index.html">HOME</a></td></tr>
                     <tr><td><a href="research.html">RESEARCH</a></td></tr>
@@ -161,10 +359,11 @@
                 <div class="pageName">MATH 271: MATHEMATICAL METHODS (FALL 2026)</div>
                 
                 <div class="policy-box">
-                    <strong>Announcements:</strong> <a href="Evaluation_Policy.pdf" target="_blank">Evaluation Policy (PDF)</a>
+                    <strong>Course Documents:</strong> <a href="Evaluation_Policy.pdf" target="_blank">Evaluation Policy (PDF)</a> &bull; <a href="Grading_Rubric.pdf" target="_blank">Grading Rubric (PDF)</a>
                 </div>
 
-                <p class="subHeader" style="margin-top: 20px; margin-bottom: 6px;">COURSE SCHEDULE &amp; MATERIALS</p>
+                <!-- Course Schedule Section -->
+                <div class="subHeader">COURSE SCHEDULE &amp; MATERIALS</div>
                 
                 <table class="schedule-table">
                     <thead>
@@ -186,7 +385,7 @@
                         </tr>
                         <tr>
                             <td>04 August, 2026</td>
-                            <td><a href="ClassTest1.pdf">Class Test 1</a></td>
+                            <td>Class Test 1</td>
                             <td>Evaluation by Prof. Tridip Ray</td>
                         </tr>
                         <tr>
@@ -201,18 +400,15 @@
                         </tr>
                         <tr>
                             <td>18 August, 2026</td>
-                            <td><a href="ClassTest2.pdf">Class Test 2</a></td>
+                            <td>Class Test 2</td>
                             <td>
-                                <a href="ClassTest2ModelSol.pdf" target="_blank">Model Solution</a> &bull; GSR: <a href="Grading_Rubric_Class_Test_2.pdf">Grading Rubric</a> 
+                                <a href="ClassTest2ModelSol.pdf" target="_blank">Model Solution</a> &bull; General and Specific Grading Rules
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </td>
-        </tr>
-    </table>
-</div>
-                    <div class="subHeader">EVALUATION FEEDBACK FORM</div>
+
+                <div class="subHeader">EVALUATION FEEDBACK FORM</div>
 
                 <p style="font-size: 13px; color: #4A5568; line-height: 20px; margin-bottom: 12px;">
                     Please fill out this form upon receiving your graded answer script for Class Test 2. If you have <strong>no grievances</strong>, simply check the confirmation option below and submit. If you wish to submit a regrade request, specify the disputed step code(s) from the published <strong>Grading Rubric</strong> (e.g., <em>(a1)</em>, <em>(b2.4)</em>, <em>(c3)</em>). LaTeX math syntax is supported in the justification box (e.g., <code>$\alpha_1$</code>, <code>$\sum A_{ki} A^i$</code>).
@@ -372,9 +568,9 @@
 <script type="text/javascript">
     // Authorized list of 30 registered student email addresses for Math 271 Fall 2026
     var allowedEmails = [
-        "kthesmart4@gmail.com",
-        "karan24r@isid.ac.in",
-        "karan.4.kumar@outlook.com",
+        "student01@isid.ac.in",
+        "student02@isid.ac.in",
+        "student03@isid.ac.in",
         "student04@isid.ac.in",
         "student05@isid.ac.in",
         "student06@isid.ac.in",
@@ -538,6 +734,5 @@
         thankYouCard.style.display = 'block';
     }
 </script>
-</body>
 </body>
 </html>
