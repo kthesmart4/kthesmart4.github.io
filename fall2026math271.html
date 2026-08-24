@@ -618,16 +618,19 @@
         }
     }
 
+  
     function toggleGrievanceFields(isNoGrievance) {
         var detailsSection = document.getElementById('grievance_details_section');
         var noGrievanceMsg = document.getElementById('no_grievance_msg');
         var reqInputs = document.querySelectorAll('.grievance-req');
         var subjectInput = document.getElementById('email_subject');
+        var confirmInput = document.getElementById('confirmation_statement_input');
 
         if (isNoGrievance) {
             detailsSection.style.display = 'none';
             noGrievanceMsg.style.display = 'block';
             subjectInput.value = "[Math 271 Grade Confirmation] No Grievances - " + document.getElementById('full_name').value;
+            if (confirmInput) confirmInput.disabled = false;
             
             for (var i = 0; i < reqInputs.length; i++) {
                 reqInputs[i].removeAttribute('required');
@@ -636,6 +639,7 @@
             detailsSection.style.display = 'block';
             noGrievanceMsg.style.display = 'none';
             subjectInput.value = "[Math 271 Regrade Request] Grievance Submitted - " + document.getElementById('full_name').value;
+            if (confirmInput) confirmInput.disabled = true;
             
             for (var j = 0; j < reqInputs.length; j++) {
                 reqInputs[j].setAttribute('required', 'required');
