@@ -426,9 +426,8 @@
                         <!-- Hidden CC field set dynamically to student's email for private confirmation copy -->
                         <input type="hidden" name="_cc" id="cc_recipient" value="" />
 
-                        <!-- Hidden statement text field submitted for No-Grievance confirmations -->
-                        <input type="hidden" name="Confirmation Statement" id="confirmation_statement_input" value="I have reviewed my graded answer script and I DO NOT have any grievances (Confirm grade &amp; skip regrading request)." />
-
+                        <!-- Hidden statement text field submitted ONLY for No-Grievance confirmations -->
+<input type="hidden" id="confirmation_statement_input" value="I have reviewed my graded answer script and I DO NOT have any grievances (Confirm grade &amp; skip regrading request)." />
                         <!-- Checkbox for No Grievance / Grade Confirmation -->
                         <div class="no-grievance-box">
                             <label style="font-size: 12px; font-weight: bold; color: #1B4F72; cursor: pointer; display: flex; align-items: flex-start; gap: 8px;">
@@ -690,6 +689,20 @@
         submitBtn.innerHTML = "SUBMITTING...";
 
         var formData = new FormData(form);
+
+        // Strip irrelevant fields based on submission type
+        if (isNoGrievance) {
+            formData.set('Confirmation Statement', document.getElementById('confirmation_statement_input').value);
+            formData.delete('Disputed Rubric Steps');
+            formData.delete('Awarded Marks');
+            formData.delete('Claimed Marks');
+            formData.delete('Grievance Explanation');
+            formData.delete('Graded Script Attachment');
+            formData.delete('Graded Script Link');
+        } else {
+            formData.delete('Confirmation Statement');
+            formData.delete('Grade Confirmation Option');
+        }
 
         fetch(form.action, {
             method: 'POST',
