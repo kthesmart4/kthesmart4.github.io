@@ -427,34 +427,34 @@
 
                 <!--  <div class="subHeader">EVALUATION FEEDBACK FORM</div>
 
-                <p style="font-size: 13px; color: #4A5568; line-height: 20px; margin-bottom: 12px;">
+                <!-- <p style="font-size: 13px; color: #4A5568; line-height: 20px; margin-bottom: 12px;">
                     Please fill out this form upon receiving your graded answer script for Class Test 2. If you have <strong>no grievances</strong>, simply check the confirmation option below and submit. If you wish to submit a regrade request, specify the disputed step code(s) from the published <strong>Grading Rubric</strong> (e.g., <em>(a1)</em>, <em>(b2.4)</em>, <em>(c3)</em>). LaTeX math syntax is supported in the justification box (e.g., <code>$\alpha_1$</code>, <code>$\sum A_{ki} A^i$</code>).
-                </p>
+                </p> -->
 
                 <!-- PROMINENT SUBMISSION POLICY NOTICE BOX -->
-                <div class="important-notice-box">
+                <!-- <div class="important-notice-box">
                     <strong>IMPORTANT POLICY ON SUBMISSIONS:</strong> Only the first submission per student will be considered for evaluation. Subsequent submissions will be disregarded.
-                </div>
+                </div> -->
 
                 <!-- Form Container -->
-                <div class="form-card" id="form_container">
+                <!-- <div class="form-card" id="form_container">
                     <form id="grievance_form" action="https://formspree.io/f/mzepqnrj" method="POST" enctype="multipart/form-data" onsubmit="handleFormSubmission(event)">
                         
                         <!-- Hidden CC field set dynamically to student's email for private confirmation copy -->
-                        <input type="hidden" name="_cc" id="cc_recipient" value="" />
+                        <input type="hidden" name="_cc" id="cc_recipient" value="" /> -->
 
                         <!-- Hidden statement text field submitted ONLY for No-Grievance confirmations -->
-<input type="hidden" id="confirmation_statement_input" value="I have reviewed my graded answer script and I DO NOT have any grievances (Confirm grade &amp; skip regrading request)." />
+<!-- <input type="hidden" id="confirmation_statement_input" value="I have reviewed my graded answer script and I DO NOT have any grievances (Confirm grade &amp; skip regrading request)." />
                         <!-- Checkbox for No Grievance / Grade Confirmation -->
-                        <div class="no-grievance-box">
+                        <!-- <div class="no-grievance-box">
                             <label style="font-size: 12px; font-weight: bold; color: #1B4F72; cursor: pointer; display: flex; align-items: flex-start; gap: 8px;">
                                 <input type="checkbox" id="no_grievance_check" name="Grade Confirmation Option" value="CONFIRMED: No regrading requested / No grievances" onchange="toggleGrievanceFields(this.checked)" style="margin-top: 2px; cursor: pointer;" />
                                 <span>I have reviewed my graded answer script and I DO NOT have any grievances (Confirm grade &amp; skip regrading request).</span>
-                            </label>
-                        </div>
+                            </label> -->
+                        <!-- </div> --> -->
 
                         <!-- Student Information Fields (Always Required) -->
-                        <table class="form-row">
+                        <!-- <table class="form-row">
                             <tr>
                                 <td width="50%">
                                     <div class="form-group">
@@ -491,12 +491,12 @@
                                     </div>
                                 </td>
                             </tr>
-                        </table>
+                        </table> -->
 
                         <!-- Grievance Detail Section (Toggled Off when No Grievance Checked) -->
-                        <div id="grievance_details_section">
+                        <!-- <div id="grievance_details_section">
                             <!-- Rubric Step & Marks Fields -->
-                            <table class="form-row">
+                            <!-- <table class="form-row">
                                 <tr>
                                     <td width="40%">
                                         <div class="form-group">
@@ -517,10 +517,10 @@
                                         </div>
                                     </td>
                                 </tr>
-                            </table>
+                            </table> --> -->
 
                             <!-- Detailed Explanation with Live LaTeX Preview 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="form-label" for="grievance_reason">
                                     DETAILED GRIEVANCE JUSTIFICATION * 
                                     <span style="font-weight: normal; font-size: 10px; color: #2874A6;">(Supports LaTeX e.g. $\alpha_1$, $\sum_i x_i$)</span>
@@ -528,60 +528,60 @@
                                 <textarea id="grievance_reason" name="Grievance Explanation" rows="5" class="form-textarea grievance-req" placeholder="Please refer explicitly to the criteria in the Grading Rubric. Explain why your written steps satisfy the conditions for the awarded/claimed marks... LaTeX notation like $\alpha$ or $\frac{a}{b}$ is allowed." required="required" oninput="renderLatexPreview()"></textarea>
                                 
                                 <!-- Live LaTeX Preview Panel -->
-                                <div id="latex_preview_box" class="latex-preview-box">
+                                <!-- <div id="latex_preview_box" class="latex-preview-box">
                                     <div style="font-size: 10px; font-weight: bold; color: #1B4F72; letter-spacing: .05em; margin-bottom: 4px;">LIVE LATEX PREVIEW:</div>
                                     <div id="latex_preview_rendered" style="color: #2D3748;"></div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Direct File Upload for Graded Script -->
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="form-label" for="script_file">ATTACH GRADED SCRIPT / ANNOTATED PDF (OPTIONAL)</label>
                                 <input type="file" id="script_file" name="Graded Script Attachment" class="form-input" accept=".pdf,.png,.jpg,.jpeg" style="padding: 5px;" />
-                            </div>
+                            </div> -->
 
                             <!-- Optional Link for Uploaded Script/Proof -->
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="form-label" for="script_link">OR GOOGLE DRIVE / EXTERNAL LINK (OPTIONAL)</label>
                                 <input type="url" id="script_link" name="Graded Script Link" class="form-input" placeholder="https://drive.google.com/... (Ensure access permissions are set)" />
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Confirmation message when no grievance checked -->
-                        <div id="no_grievance_msg" style="display: none; background-color: #F7FBFC; border: 1px dashed #AED6F1; padding: 12px; font-size: 12px; color: #1B4F72; margin-bottom: 14px;">
+                        <!-- <div id="no_grievance_msg" style="display: none; background-color: #F7FBFC; border: 1px dashed #AED6F1; padding: 12px; font-size: 12px; color: #1B4F72; margin-bottom: 14px;">
                             <strong>Note:</strong> You have selected that you have no grievances. Click the submit button below to record your grade acknowledgement.
-                        </div>
+                        </div> -->
 
                         <!-- Formspree Subject Line Configuration -->
-                        <input type="hidden" name="_subject" id="email_subject" value="[Math 271 Evaluation Form - Class Test 2] Submission" />
+                        <!-- <input type="hidden" name="_subject" id="email_subject" value="[Math 271 Evaluation Form - Class Test 2] Submission" />
                         
                         <div style="margin-top: 18px;">
                             <button type="submit" class="submit-btn" id="submit_btn">SUBMIT FORM &raquo;</button>
-                        </div>
+                        </div> --> -->
 
-                    </form>
-                </div>
+                    <!-- </form>
+                </div> -->
 
                 <!-- Custom Inline Thank You Card (Replaces form upon submission) -->
-                <div id="thankyou_card" class="thankyou-card">
+                <!-- <div id="thankyou_card" class="thankyou-card">
                     <div class="thankyou-title">&#10004; SUBMISSION RECEIVED</div>
                     <div class="thankyou-body">
                         Thank you! Your response for <strong>Math 271 (Class Test 2)</strong> has been recorded.
                     </div>
                     <div class="thankyou-details-box" id="thankyou_summary_box">
                         <!-- Summary populated dynamically by JavaScript -->
-                    </div>
+                    <!-- </div>
                     <div style="font-size: 11px; color: #718096; font-style: italic;">
                         Notice: Only one response per student is recorded as official.
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div>
 
             </td>
         </tr>
-    </table>
-</div>
+    </table> -->
+<!-- </div> --> -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript"> -->
          // Authorized list of registered student email addresses for Math 271 Fall 2026
     var allowedEmails = [
         "kthesmart4@gmail.com",
@@ -649,7 +649,7 @@
             subjectInput.value = "[Math 271 Grade Confirmation] No Grievances - " + document.getElementById('full_name').value;
             if (confirmInput) confirmInput.disabled = false;
             
-            for (var i = 0; i < reqInputs.length; i++) {
+            <!-- for (var i = 0; i < reqInputs.length; i++) {
                 reqInputs[i].removeAttribute('required');
             }
         } else {
@@ -660,7 +660,7 @@
             
             for (var j = 0; j < reqInputs.length; j++) {
                 reqInputs[j].setAttribute('required', 'required');
-            }
+            } -->
         }
     }
 
@@ -751,11 +751,11 @@
         var thankYouCard = document.getElementById('thankyou_card');
         var summaryBox = document.getElementById('thankyou_summary_box');
 
-        var summaryHTML = "<strong>Student Name:</strong> " + name + "<br/>" +
+        <!-- var summaryHTML = "<strong>Student Name:</strong> " + name + "<br/>" +
                           "<strong>Submitted Email:</strong> " + email + "<br/>" +
-                          "<strong>Confirmation Copy Sent To:</strong> " + email + "<br/><br/>";
+                          "<strong>Confirmation Copy Sent To:</strong> " + email + "<br/><br/>"; -->
 
-        if (isNoGrievance) {
+        <!-- if (isNoGrievance) {
             summaryHTML += "<strong>RECORDED ACKNOWLEDGEMENT STATEMENT:</strong><br/>" +
                            "<em>\"I have reviewed my graded answer script and I DO NOT have any grievances (Confirm grade & skip regrading request).\"</em>";
         } else {
@@ -763,11 +763,11 @@
                            "&bull; Disputed Rubric Step(s): " + (rubricSteps || "N/A") + "<br/>" +
                            "&bull; Marks Awarded: " + (awardedMarks || "N/A") + " | Marks Claimed: " + (claimedMarks || "N/A") + "<br/>" +
                            "&bull; Detailed justification and optional script file submitted for evaluation.";
-        }
+        } -->
 
         summaryBox.innerHTML = summaryHTML;
         thankYouCard.style.display = 'block';
     }
-</script>  -->
+<!-- </script>  --> -->
 </body>
 </html>
