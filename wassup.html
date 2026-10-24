@@ -3873,7 +3873,34 @@ function renderScheme(){
 
 /* ---------------------------------------------------------------- toolbar */
 document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;render();}));
-function doPrint(html){ const p=document.getElementById('print'); p.innerHTML=html; window.print(); }
+
+function doPrint(html) {
+  const p = document.getElementById('print');
+  p.innerHTML = html;
+
+  const printNow = () => {
+    if (window.renderMathInElement) {
+      renderMathInElement(p, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ],
+        throwOnError: false
+      });
+    }
+
+    window.print();
+  };
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(printNow);
+  } else {
+    printNow();
+  }
+}
+
 document.getElementById('bPrintOne').onclick=()=>doPrint(reportHTML(D.students[cur]));
 document.getElementById('bPrintAll').onclick=()=>doPrint(D.students.map(reportHTML).join(''));
 document.getElementById('bPrintScheme').onclick=()=>doPrint(schemeHTML());
