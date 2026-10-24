@@ -61,29 +61,121 @@ details summary{cursor:pointer;color:var(--acc);font-size:13px}
 .texnote{max-width:1400px;margin:8px auto 0;padding:6px 14px;font-size:12px;color:var(--mut)}
 .texnote code{background:#eef1f6;padding:0 3px;border-radius:3px}
 .preview{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 28px;margin-top:12px}
-.sheet{font:10.5pt/1.35  "Palatino Linotype", "Palatino", "Book Antiqua", 3, serif;color:#000;page-break-after:always}
-.sheet:last-child{page-break-after:auto}
-.sheet h1{font-size:15pt;text-align:center;margin:0 0 4px}
-.sheet h2{font-size:12.5pt;color:#1a3d6d;margin:14px 0 4px}
-.sheet h3{font-size:11pt;margin:10px 0 3px;display:flex}
-.sheet h3 span.r{margin-left:auto}
-.sheet p{margin:3px 0}
-.sheet .c{text-align:center}
-.sheet .note{font-size:9pt;color:#333}
-.sheet .it{margin:6px 0 2px 14px}
-.sheet .fld{margin:2px 0 2px 28px}
-.sheet .ind{margin-left:14px}
-.sheet table{border-collapse:collapse;margin:6px 0}
-.sheet th,.sheet td{border:1px solid #777;padding:2px 7px;text-align:left;vertical-align:top}
-.sheet td.n{text-align:right}
-.sheet table.mid{margin-left:auto;margin-right:auto}
-.sheet .step{display:flex;gap:10px}.sheet .step .t{flex:1}.sheet .step .m{font-weight:bold;width:40px;text-align:right}
-@media print{
- body>*:not(#print){display:none!important}
- #print{display:block}
- @page{margin:16mm}
+
+/* ================================================= NEW LATEX-STYLE SHEET LAYOUT */
+.sheet {
+  font: 11pt/1.5 "TeX Gyre Pagella", "Palatino Linotype", "Palatino", "Book Antiqua", serif;
+  color: #000;
+  max-width: 800px;
+  margin: 0 auto;
+  page-break-after: always;
+  counter-reset: section;
+}
+.sheet:last-child {
+  page-break-after: auto;
+}
+.sheet h1 {
+  font-size: 17pt;
+  text-align: center;
+  margin: 0 0 18pt 0;
+  font-weight: bold;
+}
+.sheet p.c {
+  text-align: center;
+  margin: 2pt 0;
+  font-size: 10pt;
+}
+.sheet h2 {
+  font-size: 13pt;
+  margin: 22pt 0 8pt 0;
+  font-weight: bold;
+  color: #000;
+}
+.sheet h2::before {
+  counter-increment: section;
+  content: counter(section) ". ";
+}
+.sheet h3 {
+  font-size: 11pt;
+  margin: 14pt 0 4pt 0;
+  display: flex;
+  font-weight: bold;
+}
+.sheet h3 span.r {
+  margin-left: auto;
+  font-weight: normal;
+}
+.sheet p {
+  margin: 0 0 8pt 0;
+  text-align: justify;
+}
+.sheet .note {
+  font-size: 9pt;
+  font-style: italic;
+  color: #333;
+  margin: 8pt 0;
+}
+.sheet table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12pt 0;
+  font-size: 10.5pt;
+}
+.sheet table.mid {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 40%;
+}
+.sheet th, .sheet td {
+  padding: 5pt 8pt;
+  text-align: left;
+  vertical-align: middle;
+  border: none;
+}
+.sheet th {
+  font-weight: bold;
+  border-top: 1.5pt solid #000;
+  border-bottom: 0.8pt solid #000;
+}
+.sheet tr:last-child td {
+  border-bottom: 1.5pt solid #000;
+}
+.sheet td.n {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.sheet .step {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 4pt;
+}
+.sheet .step .t { flex: 1; }
+.sheet .step .m { font-weight: bold; width: 50px; text-align: right; }
+.sheet .it { margin: 8pt 0 2pt 12pt; }
+.sheet .fld { margin: 2pt 0 2pt 24pt; padding-left: 6pt; border-left: 1pt solid #ccc; }
+.sheet .ind { margin-left: 12pt; }
+
+/* ================================================= NEW LATEX PRINT OVERRIDES */
+@media print {
+  body > *:not(#print) {
+    display: none !important;
+  }
+  #print {
+    display: block !important;
+    background: transparent;
+  }
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+  .sheet {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
 }
 </style>
+
 </head>
 <body>
 <header class="top">
@@ -3658,12 +3750,37 @@ function renderStudents(){
   head.append(el('h3',{},`${st.name} (${st.roll})`, live('total',{class:'r'})));
   const g=el('div',{class:'grid2'}); g.append(field('Roll Number',st,'roll',{line:1,after:()=>refreshLight()}), field('Name',st,'name',{line:1}));
   head.append(g);
+  
+  // Header Action Buttons Row
   head.append(el('div',{class:'row',style:'margin-top:8px;display:flex;gap:8px'},
      el('button',{onclick:()=>{ const roll=prompt('Roll number of the new student?'); if(!roll) return; const name=prompt('Name?')||'';
         const sc={}; D.parts.forEach(p=>p.steps.forEach(s=>sc[s.id]=s.max));
         D.students.push({roll,name,scores:sc,routes:{},approach:{a:'',b:'',c:'',d:''},strengths:{a:'',b:'',c:'',d:''},items:[],improve:{},overall:''});
         cur=D.students.length-1; save(); render(); }},'+ Add student'),
-     el('button',{class:'dng',onclick:()=>{ if(confirm(`Delete ${st.name} (${st.roll})?`)){ D.students.splice(cur,1); cur=0; save(); render(); } }},'Delete student')));
+     el('button',{class:'dng',onclick:()=>{ if(confirm(`Delete ${st.name} (${st.roll})?`)){ D.students.splice(cur,1); cur=0; save(); render(); } }},'Delete student'),
+     
+     // CRITICAL: The newly added LaTeX-ready Print Button
+     el('button',{class:'pri',onclick:()=>{
+        tab='scheme'; // Temporarily flip layout context
+        const pBox=document.getElementById('print');
+        pBox.innerHTML=reportHTML(st);
+        
+        // Render math in LaTeX typesetting *before* triggering the print screen
+        if(window.renderMathInElement){
+           renderMathInElement(pBox, {
+              delimiters: [
+                 {left: '$$', right: '$$', display: true},
+                 {left: '$', right: '$', display: false},
+                 {left: '\\(', right: '\\)', display: false},
+                 {left: '\\[', right: '\\]', display: true}
+              ]
+           });
+        }
+        window.print();
+        tab='students'; // Revert back to screen view
+     }},'Print student report')
+  ));
+  
   main.append(head);
   const codes=D.errors.map(e=>e.code); const L=labels(); const LB=libByCode();
   for(const p of D.parts){
@@ -3705,6 +3822,7 @@ function renderStudents(){
   const ov=el('div',{class:'card'}); ov.append(field('Overall comments',st,'overall',{rows:3})); main.append(ov);
   main.append(el('h3',{},'Report preview'), live('preview',{class:'preview'}));
 }
+
 
 function renderLibrary(){
   const w=el('div',{class:'wrap single lib'}); app.append(w);
